@@ -1,1 +1,1 @@
-# CRUD-Angular-Node-Express-TypeScript-Sequelize-MySQL
+CRUD for product management
