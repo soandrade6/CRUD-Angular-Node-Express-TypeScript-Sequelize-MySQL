@@ -1,1 +1,33 @@
-<p>list-products works!</p>
+<div class="container">
+  <div class="title">
+    <h4>Products list</h4>
+    <button type="button" class="btn btn-primary">Add Product</button>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of listProducts" class="table-light">
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.stock }}</td>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm">
+            Edit
+          </button>
+          <button type="button" class="btn btn-danger btn-sm">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
