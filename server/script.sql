@@ -5,9 +5,10 @@ USE product_manager;
 
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    description TEXT NOT NULL,
     name VARCHAR(255) NOT NULL,
     price INT NOT NULL,
-    stock INT NOT NULL,
+    stock INT NOT NULL
 );
 
 INSERT INTO products (name, price, stock) VALUES

@@ -1,7 +1,7 @@
 import sequelize from "../database/database.js";
 import { DataTypes } from "sequelize";
 
-export const Product = sequelize.define(
+const Product = sequelize.define(
   "products",
   {
     id: {
@@ -30,3 +30,5 @@ export const Product = sequelize.define(
     timestamps: false,
   }
 );
+
+export  default Product;
