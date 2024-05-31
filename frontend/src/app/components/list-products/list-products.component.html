@@ -1,7 +1,7 @@
 <div class="container">
   <div class="title">
-    <h4>Products list</h4>
-    <button type="button" class="btn btn-primary">Add Product</button>
+    <h4>Products List</h4>
+    <button type="button" class="btn btn-primary" routerLink="/add">Add Product</button>
   </div>
   <table class="table table-hover">
     <thead>
@@ -20,7 +20,7 @@
         <td>{{ product.price }}</td>
         <td>{{ product.stock }}</td>
         <td>
-          <button type="button" class="btn btn-primary btn-sm">
+          <button routerLink="/edit/{{product.id}}" type="button" class="btn btn-primary btn-sm">
             Edit
           </button>
           <button type="button" class="btn btn-danger btn-sm">
