@@ -16,7 +16,7 @@
       <tr *ngFor="let product of listProducts" class="table-light">
         <td>{{ product.name }}</td>
         <td>{{ product.description }}</td>
-        <td>{{ product.price }}</td>
+        <td>{{ product.price | currency }}</td>
         <td>{{ product.stock }}</td>
         <td>
           <button routerLink="/edit/{{product.id}}" type="button" class="btn btn-primary btn-sm">
