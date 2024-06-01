@@ -23,7 +23,7 @@
           <button routerLink="/edit/{{product.id}}" type="button" class="btn btn-primary btn-sm">
             Edit
           </button>
-          <button type="button" class="btn btn-danger btn-sm">
+          <button (click)="deleteProduct(product.id!)" type="button" class="btn btn-danger btn-sm">
             Delete
           </button>
         </td>

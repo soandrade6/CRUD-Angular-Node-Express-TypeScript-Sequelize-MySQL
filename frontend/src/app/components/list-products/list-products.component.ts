@@ -19,11 +19,19 @@ export class ListProductsComponent implements OnInit {
 
   getProducts() {
     this.loading = true;
-    this._productService.getProducts().subscribe((data) => {
+    this._productService.getProducts().subscribe((data: Product[]) => {
       this.listProducts = data;
+      this.loading = false;
     });
 
-    this.loading = false;
+    
   }
 
+  deleteProduct(id: number) {
+    this.loading = true;
+    this._productService.deleteProdcut(id).subscribe(() => {
+      this.getProducts();
+    });
+    
+  }
 }
