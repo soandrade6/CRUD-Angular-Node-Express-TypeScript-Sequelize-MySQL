@@ -1,4 +1,5 @@
-<div class="container">
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="container">
   <div class="title right-align">
     <button type="button" class="btn btn-primary add-btn" routerLink="/add">Add Product</button>
   </div>

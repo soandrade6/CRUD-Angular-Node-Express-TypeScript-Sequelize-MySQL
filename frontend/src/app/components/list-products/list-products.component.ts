@@ -9,6 +9,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ListProductsComponent implements OnInit {
   listProducts: Product[] = [];
+  loading: Boolean = false;
 
   constructor(private _productService: ProductService) {}
 
@@ -17,8 +18,12 @@ export class ListProductsComponent implements OnInit {
   }
 
   getProducts() {
+    this.loading = true;
     this._productService.getProducts().subscribe((data) => {
       this.listProducts = data;
     });
+
+    this.loading = false;
   }
+
 }
