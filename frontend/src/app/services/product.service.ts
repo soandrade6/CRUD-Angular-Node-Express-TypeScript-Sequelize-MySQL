@@ -23,4 +23,8 @@ export class ProductService {
   deleteProdcut(id: number): Observable<void>{
     return this.http.delete<void>(`${this.myappUrl}${this.myApiUrl}${id}`);
   }
+
+  saveProduct(product: Product): Observable<void>{
+    return this.http.post<void>(`${this.myappUrl}${this.myApiUrl}`, product)
+  }
 }

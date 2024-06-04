@@ -1,4 +1,5 @@
-<div class="contenedor row mt-5">
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="contenedor row mt-5">
   <div class="card bg-light mb-3">
     <div class="card-header text-center"><b>Add Product</b></div>
     <div class="card-body">
