@@ -9,6 +9,23 @@ export const getProducts = async (req, res) => {
   }
 };
 
+export const getProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const product = await Product.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!product)
+      return res.status(400).json({ message: "Project does not exists" });
+    res.json(product);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 export const createProduct = async (req, res) => {
   try {
     const { name, description, price, stock } = req.body;

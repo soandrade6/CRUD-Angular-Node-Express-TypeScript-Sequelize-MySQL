@@ -2,6 +2,7 @@ import Router from "express";
 import {
   createProduct,
   deleteProduct,
+  getProduct,
   getProducts,
   updateProduct,
 } from "../controllers/products.controllers.js";
@@ -9,6 +10,7 @@ import {
 const router = Router();
 
 router.get("/products", getProducts);
+router.get("/products/:id", getProduct); //To obtain an especific product
 router.post("/products", createProduct);
 router.put("/products/:id", updateProduct);
 router.delete("/products/:id", deleteProduct);

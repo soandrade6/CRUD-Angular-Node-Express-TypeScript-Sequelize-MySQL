@@ -1,7 +1,7 @@
 <app-progress-bar *ngIf="loading"></app-progress-bar>
 <div *ngIf="!loading" class="contenedor row mt-5">
   <div class="card bg-light mb-3">
-    <div class="card-header text-center"><b>Add Product</b></div>
+    <div class="card-header text-center"><b>{{ operacion }} Product</b></div>
     <div class="card-body">
       <form [formGroup]="form" (ngSubmit)="addProduct()">
         <input
