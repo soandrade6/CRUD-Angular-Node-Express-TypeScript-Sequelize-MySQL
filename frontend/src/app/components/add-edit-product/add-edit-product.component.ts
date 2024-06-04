@@ -34,7 +34,22 @@ export class AddEditProductComponent implements OnInit {
   ngOnInit(): void {
     if (this.id != 0) {
       this.operacion = 'Edit ';
+      this.getProduct(this.id);
     }
+  }
+
+  getProduct(id: number) {
+    this.loading = true;
+    this._productService.getProduct(id).subscribe((data: Product) => {
+      console.log(data);
+      this.loading = false;
+      this.form.setValue({
+        name: data.name,
+        description: data.description,
+        price: data.price,
+        stock: data.stock
+      })
+    });
   }
 
   addProduct() {
@@ -45,12 +60,19 @@ export class AddEditProductComponent implements OnInit {
       stock: this.form.value.stock,
     };
 
-    this.loading = true;
+    if(this.id!==0){
+      product.id = this.id;
+      this._productService.updateProduct(this.id, product).subscribe(() => {
+        this.loading = false;
+        this.router.navigate(['/']);
+      })
+    }
 
-    this._productService.saveProduct(product).subscribe(() => {
-      console.log('Producto agregado');
-      this.loading = false;
-      this.router.navigate(['/']);
-    });
+    else {
+      this._productService.saveProduct(product).subscribe(() => {
+        this.loading = false;
+        this.router.navigate(['/']);
+      })
+    }
   }
 }

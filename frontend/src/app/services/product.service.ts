@@ -12,7 +12,7 @@ export class ProductService {
   private myApiUrl: string;
 
   constructor(private http: HttpClient) {
-    this.myappUrl = "http://localhost:3000/";
+    this.myappUrl = 'http://localhost:3000/';
     this.myApiUrl = 'products/';
   }
 
@@ -20,11 +20,19 @@ export class ProductService {
     return this.http.get<Product[]>(this.myappUrl + this.myApiUrl);
   }
 
-  deleteProdcut(id: number): Observable<void>{
+  deleteProdcut(id: number): Observable<void> {
     return this.http.delete<void>(`${this.myappUrl}${this.myApiUrl}${id}`);
   }
 
-  saveProduct(product: Product): Observable<void>{
-    return this.http.post<void>(`${this.myappUrl}${this.myApiUrl}`, product)
+  saveProduct(product: Product): Observable<void> {
+    return this.http.post<void>(`${this.myappUrl}${this.myApiUrl}`, product);
+  }
+
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.myappUrl}${this.myApiUrl}${id}`);
+  }
+
+  updateProduct(id: number, product:Product): Observable<void> {
+    return this.http.put<void>(`${this.myappUrl}${this.myApiUrl}${id}`, product);
   }
 }
